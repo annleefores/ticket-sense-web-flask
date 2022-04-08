@@ -2,3 +2,6 @@ venv/
 __pycache__/
 .flaskenv
 ticketsense.db
+.env
+chromedriver_linux64.zip
+requirements.txt

@@ -36,15 +36,15 @@ def index():
 
         print((link.rsplit('/'))[2])
 
-        db_insert("INSERT INTO ticketsensedata (link, name, startday, startmonth, startyear) VALUES (?, ?, ?, ?, ?)", 
+        db_insert("INSERT INTO ticketsensedata (link, name, day, month, year) VALUES (?, ?, ?, ?, ?)", 
                   (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2]))
         
     
-        # p = db_select("SELECT * FROM ticketsensedata")
+        p = db_select("SELECT * FROM ticketsensedata")
         
 
-        # for i in p:
-        #     print(i["link"])
+        for i in p:
+            print(i["link"])
 
         return redirect("/submitted")
 

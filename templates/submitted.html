@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Submitted
+    Added
 {% endblock %}
 
 {% block main %}
 
-<h5 class="text-white mb-lg-5"> 🎉  Submitted!!!  🎉 </h5>
 <div class="text-white mb-3">
     <h5>List of all triggers</h5>
 </div>
@@ -27,12 +26,17 @@
                 <td>
                     <form action="/deregister" method="post">
                         <input name="id" type="hidden" value="{{ data.id }}">
-                        <input class="btn btn-danger mx-1" type="submit" value="Delete">
+                        <input class="btn btn-secondary mx-1" type="submit" value="Delete">
                     </form>
                 </td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<div class="mt-5">
+    <a class="link-success" href="/"><button class="btn btn-primary">Add More Trigger</button></a>
+</div>
+
 
 {% endblock %}

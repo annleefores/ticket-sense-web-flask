@@ -10,7 +10,7 @@ def db_connection():
     db.row_factory = sqlite3.Row
     return db
 
-def db_insert(arg1, arg2):
+def db_insert(arg1, arg2=''):
     conn = db_connection()
     db = conn.cursor()
     db.execute(arg1, arg2)
@@ -21,6 +21,8 @@ def db_select(arg1, arg2=''):
     db = db_connection()
     out = db.execute(arg1, arg2)
     return out.fetchall()
+
+
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -46,4 +48,13 @@ def index():
 
 @app.route("/submitted")
 def submitted():
-    return render_template("submitted.html")
+    datas = db_select("SELECT * FROM ticketsensedata")
+    return render_template("submitted.html", datas=datas)
+
+
+@app.route("/deregister", methods=["POST"])
+def deregister():
+    id = request.form.get("id")
+    if id:
+        db_insert("DELETE FROM ticketsensedata WHERE id = ?", (id,))
+    return redirect("/submitted")

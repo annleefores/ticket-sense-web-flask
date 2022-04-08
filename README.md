@@ -62,3 +62,5 @@ Move file to PATH
 ```
 sudo mv chromedriver /usr/local/bin/
 ```
+
+use pyTelegramBotAPI==4.4.0

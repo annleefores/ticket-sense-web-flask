@@ -2,4 +2,3 @@ venv/
 __pycache__/
 .flaskenv
 ticketsense.db
-LICENSE

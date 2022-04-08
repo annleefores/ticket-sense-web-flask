@@ -4,7 +4,6 @@ from flask import Flask, redirect, render_template, request, session
 
 app = Flask(__name__)
 
-heya = heya
       
 def db_connection():
     db = sqlite3.connect('ticketsense.db')

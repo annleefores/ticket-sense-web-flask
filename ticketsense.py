@@ -43,9 +43,9 @@ def message(msg):
     bot.send_message(USER_ID, msg)
     #bot.send_message(USER_ID_2, msg)
     
-testbot = telebot.TeleBot(API_KEY_TEST)
-def testmessage(msg):
-    testbot.send_message(USER_ID, msg)
+# testbot = telebot.TeleBot(API_KEY_TEST)
+# def testmessage(msg):
+#     testbot.send_message(USER_ID, msg)
 
 def db_connection():
     db = sqlite3.connect('ticketsense.db')
@@ -69,7 +69,7 @@ def senseticket_bms(link, filmname, DATE, MON, YEAR):
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, 'a.venue-heading')))
 
-        showsB = WebDriverWait(browser, 10).until(
+        shows = WebDriverWait(browser, 10).until(
             EC.presence_of_all_elements_located(
                 (By.CSS_SELECTOR, 'a.nameSpan')))
 
@@ -79,7 +79,7 @@ def senseticket_bms(link, filmname, DATE, MON, YEAR):
 
         if p == DATE:
             print(f'Bookmyshow: {venue.text} {DATE}th Dec slot opened!!!')
-            for count, show in enumerate(showsB, start=1):
+            for count, show in enumerate(shows, start=1):
                 print(count, f'- Ticket booking started for {show.text}')
                 if filmname.lower() in show.text.lower():
                     print(f'Found ticket for {filmname} - {link}/{YEAR}{MON}{DATE}')
@@ -101,7 +101,7 @@ def senseticket_tnew(link, filmname, DATE, MON, YEAR):
             EC.presence_of_element_located(
                 (By.XPATH, '//*[@id="divTheatreInfo"]/h2')))
 
-        showsT = WebDriverWait(browser, 10).until(
+        shows = WebDriverWait(browser, 10).until(
             EC.presence_of_all_elements_located(
                 (By.CLASS_NAME, 'tn-entity-details')))
 
@@ -117,7 +117,7 @@ def senseticket_tnew(link, filmname, DATE, MON, YEAR):
 
         if q == DATE:
             print(f'Ticket New: {venue.text} {DATE}th Dec slot opened!!!')
-            for count, show in enumerate(showsT[1:], start=1):
+            for count, show in enumerate(shows[1:], start=1):
                 print(count, f'- Ticket booking started for {show.text}')
                 if filmname.lower() in show.text.lower():
                     print(f'Found ticket for {filmname} - {link}/{YEAR}{MON}{DATE}')

@@ -34,18 +34,9 @@ def index():
         newfilmname = filmname.rsplit(' ', 1)
         startdate = date.rsplit('/')
 
-        print((link.rsplit('/'))[2])
-
         db_insert("INSERT INTO ticketsensedata (link, name, day, month, year) VALUES (?, ?, ?, ?, ?)", 
                   (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2]))
-        
     
-        p = db_select("SELECT * FROM ticketsensedata")
-        
-
-        for i in p:
-            print(i["link"])
-
         return redirect("/submitted")
 
         

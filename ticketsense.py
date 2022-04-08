@@ -8,6 +8,7 @@ import re
 import os
 import telebot
 from dotenv import load_dotenv
+from time import sleep
 
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -131,27 +132,38 @@ def senseticket_tnew(link, filmname, DATE, MON, YEAR):
         print('-'.center(80, '-'))
 
 
-data = db_select("SELECT * FROM ticketsensedata ORDER BY link")
+
+
+
+def loopy():
+    data = db_select("SELECT * FROM ticketsensedata ORDER BY link")        
+    for i in data:
+        link = i["link"]
+        DATE = i["day"]
+        MON = i["month"]
+        YEAR = i["year"]
+        filmname = i["name"]
+        mainlink = ((link.rsplit('/'))[2])
         
-for i in data:
-    link = i["link"]
-    DATE = i["day"]
-    MON = i["month"]
-    YEAR = i["year"]
-    filmname = i["name"]
-    mainlink = ((link.rsplit('/'))[2])
-    
-    if mainlink == "in.bookmyshow.com":
-        print('\n')
-        print('Starting - BookMyShow'.center(80, '-'))
-        print('')
-        senseticket_bms(link, filmname, DATE, MON, YEAR)
-    else:
-        print('\n')
-        print('Starting - Ticket New'.center(80, '-'))
-        print('')
-        senseticket_tnew(link, filmname, DATE, MON, YEAR)
+        if mainlink == "in.bookmyshow.com":
+            print('\n')
+            print('Starting - BookMyShow'.center(80, '-'))
+            print('')
+            senseticket_bms(link, filmname, DATE, MON, YEAR)
+        else:
+            print('\n')
+            print('Starting - Ticket New'.center(80, '-'))
+            print('')
+            senseticket_tnew(link, filmname, DATE, MON, YEAR)
+        # browser.close()
+        # browser.quit()
 
 
-browser.close()
-browser.quit()
+
+while True:
+    loopy()
+    sleep(20)
+
+
+
+

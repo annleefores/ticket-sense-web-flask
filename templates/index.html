@@ -8,32 +8,26 @@
     <form action="/" method="post">
         <div class="mb-5">
             <p class="text-white">Copy paste the link of your preferred theater from <a href='https://in.bookmyshow.com/' target="_blank" rel="noopener noreferrer" >BookMyShow</a> or <a href='https://www.ticketnew.com/' target="_blank" rel="noopener noreferrer" >TicketNew</a></p>
-            <input id="inputbox" autocomplete="off" autofocus class="form-control mx-auto w-75 text-white bg-dark" id="link" name="link" placeholder="Ticket Booking Link" type="text">
+            <input id="inputbox" autocomplete="off" autofocus class="form-control mx-auto w-75 text-white bg-dark" name="link" placeholder="Ticket Booking Link" type="text">
         </div>
         <div class="mb-5">
             <p class="text-white">Type the name of the movie you need notification for</p>
-            <input id="inputbox" autocomplete="off" class="form-control mx-auto w-75 text-white bg-dark" id="filmname" name="filmname" placeholder="Film Name" type="text">
+            <input id="inputbox" autocomplete="off" class="form-control mx-auto w-75 text-white bg-dark"  name="filmname" placeholder="Film Name" type="text">
         </div>
 
-        <p class="text-white">Select the duration for which Ticket Sense should work</p>
-        <div class="row mb-5 w-75 mx-auto " id="foo" >
-            <div class="col">
-                <input  autocomplete="off" class="date form-control text-white bg-dark" id="startdate" type="text" name="start" placeholder="Start Date">
-            </div>
-            <div class="col">
-                <input autocomplete="off" class="date form-control text-white bg-dark" id="enddate" name="end" placeholder="End Date" type="text">  
-            </div>
+        <div class="mb-5">
+            <p class="text-white">Select the duration for which Ticket Sense should work</p>
+            <input  id="datebox" autocomplete="off" class="date form-control w-50 mx-auto text-white bg-dark text-center" type="text" name="date" placeholder="Date">
         </div>
 
-        <button class="btn btn-primary mx-auto" placeholder="Start Date" type="submit">Enable Ticket Sense</button>
+        <button class="btn btn-primary mx-auto" type="submit">Enable Ticket Sense</button>
 
     </form>
 
-    
 
     <script>
-        const elem = document.getElementById('foo');
-        const datepicker = new DateRangePicker(elem, {
+        const elem = document.querySelector('input[name="date"]');
+        const datepicker = new Datepicker(elem, {
         format: 'dd/mm/yyyy',
         todayHighlight: true,
         });

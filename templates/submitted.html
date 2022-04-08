@@ -6,14 +6,15 @@
 
 {% block main %}
 
-<h3 class="text-white mb-5"> 🎉  Submitted!!!  🎉 </h3>
-<div >
-    <p class="text-white">List of all triggers</p>
+<h5 class="text-white mb-lg-5"> 🎉  Submitted!!!  🎉 </h5>
+<div class="text-white mb-3">
+    <h5>List of all triggers</h5>
 </div>
 
 <table class="text-white mx-auto">
     <thead>
         <tr>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -22,10 +23,11 @@
         {% for data in datas %}
             <tr>
                 <td>{{ data.name }}</td>
+                <td>{{ data.day }}/{{ data.month }}/{{ data.year }}</td>
                 <td>
                     <form action="/deregister" method="post">
                         <input name="id" type="hidden" value="{{ data.id }}">
-                        <input type="submit" value="Delete">
+                        <input class="btn btn-danger mx-1" type="submit" value="Delete">
                     </form>
                 </td>
             </tr>

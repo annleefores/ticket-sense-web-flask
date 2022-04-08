@@ -28,25 +28,23 @@ def index():
     if request.method == "POST":
         link = request.form.get("link")
         filmname = request.form.get("filmname")
-        start = request.form.get("start")
-        end = request.form.get("end")
-
+        date = request.form.get("date")
+        
         newlink = link.rsplit('/', 1)
         newfilmname = filmname.rsplit(' ', 1)
-        startdate = start.rsplit('/')
-        enddate = end.rsplit('/')
+        startdate = date.rsplit('/')
 
         print((link.rsplit('/'))[2])
 
-        db_insert("INSERT INTO ticketsensedata (link, name, startday, startmonth, startyear, endday, endmonth, endyear) VALUES (?, ?, ?, ?, ?, ? ,?, ?)", 
-                  (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2], enddate[0], enddate[1], enddate[2]))
+        db_insert("INSERT INTO ticketsensedata (link, name, startday, startmonth, startyear) VALUES (?, ?, ?, ?, ?)", 
+                  (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2]))
         
     
-        p = db_select("SELECT * FROM ticketsensedata")
+        # p = db_select("SELECT * FROM ticketsensedata")
         
 
-        for i in p:
-            print(i["link"])
+        # for i in p:
+        #     print(i["link"])
 
         return redirect("/submitted")
 

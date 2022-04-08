@@ -1,6 +1,9 @@
-#inputbox, #foo {
+#inputbox {
     max-width: 400px;
-    align-items: center;
+}
+
+#datebox {
+    max-width: 200px;
 }
 
 h3 {

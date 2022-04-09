@@ -8,7 +8,6 @@ import re
 import os
 import telebot
 from dotenv import load_dotenv
-from time import sleep
 
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -41,12 +40,7 @@ USER_ID = os.getenv('USER_ID')
 bot = telebot.TeleBot(API_KEY)
 def message(msg):
     bot.send_message(USER_ID, msg)
-    #bot.send_message(USER_ID_2, msg)
     
-# testbot = telebot.TeleBot(API_KEY_TEST)
-# def testmessage(msg):
-#     testbot.send_message(USER_ID, msg)
-
 def db_connection():
     db = sqlite3.connect('ticketsense.db')
     db.row_factory = sqlite3.Row
@@ -130,7 +124,6 @@ def senseticket_tnew(link, filmname, DATE, MON, YEAR):
     except:
         print(f'Ticket New: {venue.text} Was not able to find an element with that name.')
         print('-'.center(80, '-'))
-
 
 
 

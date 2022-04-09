@@ -34,11 +34,11 @@ FLASK_ENV=development
 Go to the chromedriver releases page. Find the suitable version of the driver for your platform and download it.
 Make sure the chrome browser version matches the driver version.
 
-For example this is the link for Chromedriver matching chrome version 96.0.4664.45 
-https://chromedriver.storage.googleapis.com/index.html?path=96.0.4664.45/
+For example this is the link for Chromedriver matching chrome version 100.0.4896.60
+https://chromedriver.storage.googleapis.com/index.html?path=100.0.4896.60/
 
 ```
-wget https://chromedriver.storage.googleapis.com/96.0.4664.45/chromedriver_linux64.zip
+wget https://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_linux64.zip
 ```
 
 Extract the file with:
@@ -64,3 +64,6 @@ sudo mv chromedriver /usr/local/bin/
 ```
 
 use pyTelegramBotAPI==4.4.0
+selenium==4.1.3
+python-dotenv==0.20.0
+pip install APScheduler

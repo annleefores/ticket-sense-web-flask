@@ -155,14 +155,12 @@ def loopy():
             print('Starting - Ticket New'.center(80, '-'))
             print('')
             senseticket_tnew(link, filmname, DATE, MON, YEAR)
-        # browser.close()
-        # browser.quit()
+
+# browser.close()
+# browser.quit()
 
 
 
-while True:
-    loopy()
-    sleep(20)
 
 
 

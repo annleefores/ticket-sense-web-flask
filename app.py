@@ -1,8 +1,13 @@
 import os
 import sqlite3
 from flask import Flask, redirect, render_template, request, session
+from ticketsense import loopy
+from apscheduler.schedulers.background import BackgroundScheduler
+
+
 
 app = Flask(__name__)
+
 
       
 def db_connection():
@@ -58,3 +63,16 @@ def deregister():
     if id:
         db_insert("DELETE FROM ticketsensedata WHERE id = ?", (id,))
     return redirect("/submitted")
+
+
+def test_job():
+    loopy()
+
+scheduler = BackgroundScheduler()
+job = scheduler.add_job(test_job, 'interval', seconds=60)
+scheduler.start()
+
+
+if __name__ == '__main__':
+    app.run()
+

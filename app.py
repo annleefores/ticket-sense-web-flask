@@ -69,7 +69,7 @@ def test_job():
     loopy()
 
 scheduler = BackgroundScheduler()
-job = scheduler.add_job(test_job, 'interval', seconds=60)
+job = scheduler.add_job(test_job, 'interval', seconds=300)
 scheduler.start()
 
 

@@ -1,9 +1,5 @@
-#inputbox {
+#inputbox, #datebox {
     max-width: 400px;
-}
-
-#datebox {
-    max-width: 200px;
 }
 
 td {

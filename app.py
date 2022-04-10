@@ -9,7 +9,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 app = Flask(__name__)
 
 
-      
+
 def db_connection():
     db = sqlite3.connect('ticketsense.db')
     db.row_factory = sqlite3.Row
@@ -36,17 +36,24 @@ def index():
         link = request.form.get("link")
         filmname = request.form.get("filmname")
         date = request.form.get("date")
-        
-        newlink = link.rsplit('/', 1)
-        newfilmname = filmname.rsplit(' ', 1)
-        startdate = date.rsplit('/')
 
-        db_insert("INSERT INTO ticketsensedata (link, name, day, month, year) VALUES (?, ?, ?, ?, ?)", 
-                  (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2]))
-    
-        return redirect("/submitted")
+        if not link:
+            return render_template("error.html", message="Enter correct link")
+        elif not filmname:
+            return render_template("error.html", message="Enter correct filmname")
+        elif not date:
+            return render_template("error.html", message="Enter correct date")
 
-        
+        else:
+            newlink = link.rsplit('/', 1)
+            newfilmname = filmname.rsplit(' ', 1)
+            startdate = date.rsplit('/')
+
+            db_insert("INSERT INTO ticketsensedata (link, name, day, month, year) VALUES (?, ?, ?, ?, ?)",
+                    (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2]))
+
+            return redirect("/submitted")
+
     else:
         return render_template("index.html")
 
@@ -69,7 +76,7 @@ def test_job():
     loopy()
 
 scheduler = BackgroundScheduler()
-job = scheduler.add_job(test_job, 'interval', seconds=300)
+job = scheduler.add_job(test_job, 'interval', seconds=60)
 scheduler.start()
 
 

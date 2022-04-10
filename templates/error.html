@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+
+<h5 class="text-white">!!! Error !!!</h5>
+<p class="text-white" >{{ message }}</p>
+
+<div class="mt-5">
+    <a class="link-success" href="/"><button class="btn btn-primary">Go Back</button></a>
+</div>
+
+{% endblock %}

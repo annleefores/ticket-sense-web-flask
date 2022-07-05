@@ -94,7 +94,8 @@ Move file to PATH
 sudo mv chromedriver /usr/local/bin/
 ```
 
-use pyTelegramBotAPI==4.4.0
+use 
+```pyTelegramBotAPI==4.4.0
 selenium==4.1.3
 python-dotenv==0.20.0
-pip install APScheduler
+pip install APScheduler```

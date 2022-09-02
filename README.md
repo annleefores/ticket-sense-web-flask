@@ -1,9 +1,9 @@
-# Ticket Sense Web
+# Ticket Sense Web (flask)
 #### Video Demo:  <URL HERE>
 #### Description:
 
 
-Ticket Sense Web is a tool I build to get notified about ticket sales of any upcoming movie in my area.
+Ticket Sense Web (flask) is a tool I build to get notified about ticket sales of any upcoming movie in my area.
   
 Currently, only 2 websites are supported in this tool. I have plans to add more features in the future to this, like an autocomplete form, enabling control features through the telegram bot, ironing out some bugs, and hosting it on Heroku.
 

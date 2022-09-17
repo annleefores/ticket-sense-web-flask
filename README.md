@@ -7,6 +7,8 @@ Ticket Sense Web (flask) is a tool I build to get notified about ticket sales of
   
 Currently, only 2 websites are supported in this tool. I have plans to add more features in the future to this, like an autocomplete form, enabling control features through the telegram bot, ironing out some bugs, and hosting it on Heroku.
 
+Update[17 Sept 2022]: I have rebuild this entire project using Django, Next.js and Scrapy with some of the features I talked about adding in the future. (Check it out)[https://ticketsense.annleefores.com/]
+
 Create a project folder and a venv folder within:
 
 ```
